@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from 'firebase/app';
 import firebaseConnection from '../helpers/data/connections';
 import Auth from '../components/Auth/Auth';
+import MyNavBar from '../components/MyNavBar/MyNavbar';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
@@ -32,6 +33,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <MyNavBar authed={authed}/>
       <button className='btn btn-danger'>HELP ME</button>
       {
         (authed) ? (<div> You Logged in </div>) : (<Auth/>)
