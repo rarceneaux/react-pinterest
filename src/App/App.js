@@ -5,6 +5,7 @@ import Auth from '../components/Auth/Auth';
 import MyNavBar from '../components/MyNavBar/MyNavbar';
 import BoardsContainer from '../components/BoardsContainer/BoardsContainer';
 import SingleBoard from '../components/SingleBoard/SingleBoard';
+import Pins from '../components/Pins/Pins';
 
 import './App.scss';
 
@@ -54,6 +55,7 @@ class App extends React.Component {
         {
         this.renderView()
         }
+        <Pins />
       </div>
     );
   }
