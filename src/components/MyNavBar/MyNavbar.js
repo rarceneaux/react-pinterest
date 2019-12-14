@@ -6,7 +6,7 @@ import 'firebase/auth';
 
 class MyNavBar extends React.Component {
   // eslint-disable-next-line react/no-typos
-  static PropTypes = {
+  static propTypes = {
     authed: PropTypes.bool,
   }
 
