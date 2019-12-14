@@ -12,15 +12,16 @@ class SingleBoard extends React.Component {
 
   state = {
     board: {},
+    pins: {},
   }
 
   componentDidMount() {
     const { selectedBoardId } = this.props;
     boardData.getSingleBoard(selectedBoardId)
-    .then((request) => {
-    this.setState({ board: request.data });
-    })
-    .catch((error) => console.error( {error}))
+      .then((request) => {
+        this.setState({ board: request.data });
+      })
+      .catch((error) => console.error({ error }));
   }
 
   removeSelectedBoardId = (e) => {
