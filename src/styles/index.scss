@@ -1,4 +1,5 @@
 @import './variables';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
 body {
   margin: 0;
@@ -7,6 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $lightgrey;
 }
 
 code {
@@ -14,6 +16,6 @@ code {
     monospace;
 }
 
-.App{
-  background-color: $red;
-};
+// .App{
+//   background-color: $red;
+// };
