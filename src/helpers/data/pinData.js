@@ -5,16 +5,25 @@ const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getPinsByBoardId = (boardId) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
-    .then((response) => {
-      const daPins = response.data;
+    .then((result) => {
+      const allPinsObj = result.data;
       const pins = [];
-      Object.keys(daPins).forEach((fbId) => {
-        daPins[fbId].id = fbId;
-        pins.push(daPins[fbId]);
-      });
+      if (allPinsObj != null) {
+        Object.keys(allPinsObj).forEach((pinId) => {
+          const newPin = allPinsObj[pinId];
+          newPin.id = pinId;
+          pins.push(newPin);
+        });
+      }
       resolve(pins);
     })
-    .catch((error) => reject(error));
+    .catch((err) => {
+      reject(err);
+    });
 });
 
-export default { getPinsByBoardId };
+const getSinglePin = (pinId) => axios.get(`${baseUrl}/pin/${pinId}.json`);
+
+const deletePin = (pinId) => axios.delete(`${baseUrl}/pins/${pinId}.json`);
+
+export default { getPinsByBoardId, getSinglePin, deletePin };

@@ -1,16 +1,15 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import boardShape from '../../helpers/propz/boardShape';
-
 
 class Board extends React.Component {
     static propTypes = {
       board: boardShape.boardShape,
-      setSingleBoard: propTypes.func,
+      setSingleBoard: PropTypes.func,
     }
 
-    // event to view single board
+    // Event to view single board
     setSelectedBoardId = (e) => {
       e.preventDefault();
       const { setSingleBoard, board } = this.props;
@@ -20,16 +19,15 @@ class Board extends React.Component {
     render() {
       const { board } = this.props;
       return (
-      <div className="Board col-4">
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">{board.name}</h5>
-            <p className="card-text">{board.description}</p>
-            <button className="btn btn-primary" onClick={this.setSelectedBoardId}>View Pins</button>
-          </div>
+          <div className="Board col-4">
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{board.name}</h5>
+          <p className="card-text">{board.description}</p>
+          <button className="btn btn-primary" onClick={this.setSelectedBoardId}>View Pins</button>
         </div>
       </div>
-      );
+    </div>);
     }
 }
 
